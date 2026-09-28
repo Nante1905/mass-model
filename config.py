@@ -102,8 +102,45 @@ MLP_POIDS_CLASSES = None
 MLP_GRAINES = (0, 1, 2, 3, 4)
 MLP_VERBOSE = 0
 
-# Mode --essai : vérification du pipeline, pas un résultat.
+# --- LightGBM ----------------------------------------------------------------
+
+# Mêmes 90 features que le MLP, sans normalisation (inutile pour des arbres).
+# Arbres petits et feuilles peuplées : avec n_eff ≈ 2 sites, une feuille de moins
+# de ~100 nuits-site décrirait un seul épisode météo (8 sites × une douzaine de
+# jours), pas une relation générale.
+LGBM_PARAMS = {
+    "objective": "binary",
+    "metric": ["binary_logloss", "auc"],  # la première pilote l'arrêt précoce
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "max_depth": -1,
+    "min_data_in_leaf": 100,
+    # Features très corrélées entre elles (moyenne, min, max d'une même variable) :
+    # tirer 80 % des colonnes par arbre évite qu'une seule famille monopolise tout.
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "verbosity": -1,
+    "deterministic": True,
+    "force_col_wise": True,
+}
+# 0 = nombre de fils OpenMP par défaut. deterministic ne garantit l'identité des
+# résultats qu'à nombre de fils constant, donc sur une même machine.
+LGBM_NUM_THREADS = 0
+
+# Taux d'apprentissage faible et beaucoup d'arbres, arrêtés par la log-loss de 2022.
+LGBM_ARBRES_MAX = 3000
+LGBM_ARRET_PRECOCE = 100
+
+# Le sous-échantillonnage (bagging, feature_fraction) rend l'entraînement aléatoire :
+# mêmes graines que le MLP, même moyenne des probabilités.
+LGBM_GRAINES = (0, 1, 2, 3, 4)
+
+# --- Mode --essai : vérification du pipeline, pas un résultat ----------------
+
 ESSAI_EPOQUES = 3
+ESSAI_LGBM_ARBRES = 20
 ESSAI_BOOTSTRAP_N = 50
 
 # --- Seuil de décision -------------------------------------------------------

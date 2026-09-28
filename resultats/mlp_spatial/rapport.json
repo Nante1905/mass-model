@@ -1,0 +1,675 @@
+{
+  "modele": "mlp",
+  "mode": "spatial",
+  "essai": false,
+  "hyperparametres": {
+    "couches": [
+      64,
+      32
+    ],
+    "activation": "relu",
+    "dropout": 0.3,
+    "l2": 0.0001,
+    "taux_apprentissage": 0.001,
+    "taille_lot": 128,
+    "epoques_max": 300,
+    "patience": 25
+  },
+  "n_features": 90,
+  "features": [
+    "met_cloud_cover__moy",
+    "met_cloud_cover__min",
+    "met_cloud_cover__max",
+    "met_cloud_cover__std",
+    "met_cloud_cover_low__moy",
+    "met_cloud_cover_low__min",
+    "met_cloud_cover_low__max",
+    "met_cloud_cover_low__std",
+    "met_cloud_cover_mid__moy",
+    "met_cloud_cover_mid__min",
+    "met_cloud_cover_mid__max",
+    "met_cloud_cover_mid__std",
+    "met_cloud_cover_high__moy",
+    "met_cloud_cover_high__min",
+    "met_cloud_cover_high__max",
+    "met_cloud_cover_high__std",
+    "met_temperature_2m__moy",
+    "met_temperature_2m__min",
+    "met_temperature_2m__max",
+    "met_temperature_2m__std",
+    "met_relative_humidity_2m__moy",
+    "met_relative_humidity_2m__min",
+    "met_relative_humidity_2m__max",
+    "met_relative_humidity_2m__std",
+    "met_dew_point_2m__moy",
+    "met_dew_point_2m__min",
+    "met_dew_point_2m__max",
+    "met_dew_point_2m__std",
+    "met_vapour_pressure_deficit__moy",
+    "met_vapour_pressure_deficit__min",
+    "met_vapour_pressure_deficit__max",
+    "met_vapour_pressure_deficit__std",
+    "met_precipitation__moy",
+    "met_precipitation__min",
+    "met_precipitation__max",
+    "met_precipitation__std",
+    "met_wind_speed_10m__moy",
+    "met_wind_speed_10m__min",
+    "met_wind_speed_10m__max",
+    "met_wind_speed_10m__std",
+    "met_wind_gusts_10m__moy",
+    "met_wind_gusts_10m__min",
+    "met_wind_gusts_10m__max",
+    "met_wind_gusts_10m__std",
+    "met_surface_pressure__moy",
+    "met_surface_pressure__min",
+    "met_surface_pressure__max",
+    "met_surface_pressure__std",
+    "met_cloud_cover__debut",
+    "met_cloud_cover_low__debut",
+    "met_cloud_cover_mid__debut",
+    "met_cloud_cover_high__debut",
+    "met_temperature_2m__debut",
+    "met_relative_humidity_2m__debut",
+    "met_dew_point_2m__debut",
+    "met_vapour_pressure_deficit__debut",
+    "met_precipitation__debut",
+    "met_wind_speed_10m__debut",
+    "met_wind_gusts_10m__debut",
+    "met_surface_pressure__debut",
+    "met_cloud_cover__milieu",
+    "met_cloud_cover_low__milieu",
+    "met_cloud_cover_mid__milieu",
+    "met_cloud_cover_high__milieu",
+    "met_temperature_2m__milieu",
+    "met_relative_humidity_2m__milieu",
+    "met_dew_point_2m__milieu",
+    "met_vapour_pressure_deficit__milieu",
+    "met_precipitation__milieu",
+    "met_wind_speed_10m__milieu",
+    "met_wind_gusts_10m__milieu",
+    "met_surface_pressure__milieu",
+    "met_cloud_cover__fin",
+    "met_cloud_cover_low__fin",
+    "met_cloud_cover_mid__fin",
+    "met_cloud_cover_high__fin",
+    "met_temperature_2m__fin",
+    "met_relative_humidity_2m__fin",
+    "met_dew_point_2m__fin",
+    "met_vapour_pressure_deficit__fin",
+    "met_precipitation__fin",
+    "met_wind_speed_10m__fin",
+    "met_wind_gusts_10m__fin",
+    "met_surface_pressure__fin",
+    "met_weather_code__max",
+    "met_weather_code__frac_precip",
+    "tmp_doy_sin",
+    "tmp_doy_cos",
+    "altitude_site",
+    "latitude_site"
+  ],
+  "seuils": {
+    "mlp": 0.49,
+    "climatologie": 0.48
+  },
+  "critere_seuil": "kappa",
+  "dispersion_graines_validation": {
+    "graine": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "epoques": [
+      61,
+      62,
+      46,
+      48,
+      52
+    ],
+    "meilleure_epoque": [
+      36,
+      37,
+      21,
+      23,
+      27
+    ],
+    "log_loss": [
+      0.3455888420390574,
+      0.3448520093364704,
+      0.34458770943513006,
+      0.3452368539336722,
+      0.34552287942976223
+    ],
+    "brier": [
+      0.10906691039926288,
+      0.10881142443820752,
+      0.10907799585618508,
+      0.10876872926924529,
+      0.10908680391227911
+    ],
+    "roc_auc": [
+      0.92339686013522,
+      0.9232642792141749,
+      0.9233669827445621,
+      0.9235132574696588,
+      0.9222689886378772
+    ]
+  },
+  "parties": {
+    "validation": {
+      "points": {
+        "majoritaire": {
+          "log_loss": 0.6854816383555056,
+          "brier": 0.24617645775674396,
+          "roc_auc": 0.5,
+          "accuracy": 0.562426614481409,
+          "kappa": 0.0,
+          "taux_predit": 1.0,
+          "taux_observe": 0.562426614481409
+        },
+        "climatologie": {
+          "log_loss": 0.5147550594310064,
+          "brier": 0.16782628556665422,
+          "roc_auc": 0.822705385275177,
+          "accuracy": 0.773385518590998,
+          "kappa": 0.5410975540527084,
+          "taux_predit": 0.5495107632093933,
+          "taux_observe": 0.562426614481409
+        },
+        "era5_seuil": {
+          "accuracy": 0.6731898238747553,
+          "kappa": 0.37900144812580505,
+          "taux_predit": 0.2896281800391389,
+          "taux_observe": 0.562426614481409
+        },
+        "mlp": {
+          "log_loss": 0.34283729893129383,
+          "brier": 0.10825672982497027,
+          "roc_auc": 0.9241008461526014,
+          "accuracy": 0.8430528375733856,
+          "kappa": 0.6770633347401627,
+          "taux_predit": 0.6121330724070451,
+          "taux_observe": 0.562426614481409
+        }
+      },
+      "ic": {
+        "majoritaire": {
+          "log_loss": [
+            0.6730432913296451,
+            0.6991946610994869
+          ],
+          "brier": [
+            0.23998140603806048,
+            0.25300637534481435
+          ],
+          "roc_auc": [
+            0.5,
+            0.5
+          ],
+          "accuracy": [
+            0.4990117416829745,
+            0.6199468424569597
+          ],
+          "kappa": [
+            0.0,
+            0.0
+          ]
+        },
+        "climatologie": {
+          "log_loss": [
+            0.4793874527390417,
+            0.5534063422437394
+          ],
+          "brier": [
+            0.15309852433689528,
+            0.18435458569578947
+          ],
+          "roc_auc": [
+            0.7903280380045798,
+            0.8496029848238679
+          ],
+          "accuracy": [
+            0.7447010049092428,
+            0.8000948326492606
+          ],
+          "kappa": [
+            0.48676163061353633,
+            0.5884299290579995
+          ]
+        },
+        "era5_seuil": {
+          "accuracy": [
+            0.6415088801092936,
+            0.7060698593213456
+          ],
+          "kappa": [
+            0.33618687442285994,
+            0.42057099785420954
+          ]
+        },
+        "mlp": {
+          "log_loss": [
+            0.31573208856532214,
+            0.37033440721114014
+          ],
+          "brier": [
+            0.09799581646702898,
+            0.11830244518623241
+          ],
+          "roc_auc": [
+            0.9108476997865139,
+            0.9359757810277989
+          ],
+          "accuracy": [
+            0.8228532922603004,
+            0.8629187524066231
+          ],
+          "kappa": [
+            0.6328069988895025,
+            0.7188004042067698
+          ]
+        }
+      },
+      "diff_mlp_moins_modele": {
+        "majoritaire": {
+          "log_loss": [
+            -0.3724200210176198,
+            -0.31402621190760266
+          ],
+          "brier": [
+            -0.14968847092273266,
+            -0.12692184681420682
+          ],
+          "roc_auc": [
+            0.410847699786514,
+            0.43597578102779894
+          ],
+          "accuracy": [
+            0.2249971093253166,
+            0.3467808219178082
+          ],
+          "kappa": [
+            0.6328069988895025,
+            0.7188004042067698
+          ]
+        },
+        "climatologie": {
+          "log_loss": [
+            -0.20837853398404463,
+            -0.13675767598670535
+          ],
+          "brier": [
+            -0.07376231413307145,
+            -0.046782991177430365
+          ],
+          "roc_auc": [
+            0.07613340262525746,
+            0.13255842128365092
+          ],
+          "accuracy": [
+            0.04654913050520044,
+            0.09626492106276463
+          ],
+          "kappa": [
+            0.09099447045148966,
+            0.1882332266705266
+          ]
+        },
+        "era5_seuil": {
+          "accuracy": [
+            0.13424043021188833,
+            0.20493818445453502
+          ],
+          "kappa": [
+            0.25161801639068426,
+            0.3418230205071704
+          ]
+        }
+      }
+    },
+    "test": {
+      "points": {
+        "majoritaire": {
+          "log_loss": 0.6909580716838725,
+          "brier": 0.24890405392628465,
+          "roc_auc": 0.5,
+          "accuracy": 0.5371012482662968,
+          "kappa": 0.0,
+          "taux_predit": 1.0,
+          "taux_observe": 0.5371012482662968
+        },
+        "climatologie": {
+          "log_loss": 0.5532466140591529,
+          "brier": 0.1837150264757691,
+          "roc_auc": 0.8116438538334505,
+          "accuracy": 0.7600554785020804,
+          "kappa": 0.513527295667024,
+          "taux_predit": 0.5911927877947295,
+          "taux_observe": 0.5371012482662968
+        },
+        "era5_seuil": {
+          "accuracy": 0.5381414701803051,
+          "kappa": 0.1286957681450268,
+          "taux_predit": 0.09466019417475728,
+          "taux_observe": 0.5371012482662968
+        },
+        "mlp": {
+          "log_loss": 0.34918220363485736,
+          "brier": 0.10922848931857213,
+          "roc_auc": 0.9244185568555767,
+          "accuracy": 0.8474341192787794,
+          "kappa": 0.6926062818818999,
+          "taux_predit": 0.5495839112343966,
+          "taux_observe": 0.5371012482662968
+        }
+      },
+      "ic": {
+        "majoritaire": {
+          "log_loss": [
+            0.6836812395859291,
+            0.6989097259238198
+          ],
+          "brier": [
+            0.24527974990090176,
+            0.25286446033423776
+          ],
+          "roc_auc": [
+            0.5,
+            0.5
+          ],
+          "accuracy": [
+            0.5003294036061027,
+            0.570752427184466
+          ],
+          "kappa": [
+            0.0,
+            0.0
+          ]
+        },
+        "climatologie": {
+          "log_loss": [
+            0.5349464998885949,
+            0.5725519584311158
+          ],
+          "brier": [
+            0.17510899660825813,
+            0.1927679197605416
+          ],
+          "roc_auc": [
+            0.7877208721728156,
+            0.8342771736407214
+          ],
+          "accuracy": [
+            0.7368238557558946,
+            0.7832957697642163
+          ],
+          "kappa": [
+            0.4640012519716977,
+            0.559808074591684
+          ]
+        },
+        "era5_seuil": {
+          "accuracy": [
+            0.5083217753120666,
+            0.5707350901525658
+          ],
+          "kappa": [
+            0.10833979919598588,
+            0.15065053082883664
+          ]
+        },
+        "mlp": {
+          "log_loss": [
+            0.3247471609250453,
+            0.37234719889026396
+          ],
+          "brier": [
+            0.10074211029196782,
+            0.11710569061358807
+          ],
+          "roc_auc": [
+            0.913485915220339,
+            0.9355694604862203
+          ],
+          "accuracy": [
+            0.8332177531206657,
+            0.862005894590846
+          ],
+          "kappa": [
+            0.6624399685233044,
+            0.7225718417642742
+          ]
+        }
+      },
+      "diff_mlp_moins_modele": {
+        "majoritaire": {
+          "log_loss": [
+            -0.36781648546087864,
+            -0.31849292544320784
+          ],
+          "brier": [
+            -0.14914362558161545,
+            -0.1312168849747809
+          ],
+          "roc_auc": [
+            0.41348591522033895,
+            0.43556946048622025
+          ],
+          "accuracy": [
+            0.27495665742024966,
+            0.34917649098474335
+          ],
+          "kappa": [
+            0.6624399685233044,
+            0.7225718417642742
+          ]
+        },
+        "climatologie": {
+          "log_loss": [
+            -0.2260839975273008,
+            -0.18282224335020578
+          ],
+          "brier": [
+            -0.0827978591814615,
+            -0.06635581596518812
+          ],
+          "roc_auc": [
+            0.09359200795278212,
+            0.13459575779388613
+          ],
+          "accuracy": [
+            0.06622746185852979,
+            0.10852981969486819
+          ],
+          "kappa": [
+            0.13703266839444267,
+            0.2213581101726656
+          ]
+        },
+        "era5_seuil": {
+          "accuracy": [
+            0.27045769764216365,
+            0.3425797503467406
+          ],
+          "kappa": [
+            0.5281800568529447,
+            0.5972766663981086
+          ]
+        }
+      }
+    },
+    "test_2023_2024": {
+      "points": {
+        "majoritaire": {
+          "log_loss": 0.6905501422631778,
+          "brier": 0.24870088031700022,
+          "roc_auc": 0.5,
+          "accuracy": 0.5389876880984952,
+          "kappa": 0.0,
+          "taux_predit": 1.0,
+          "taux_observe": 0.5389876880984952
+        },
+        "climatologie": {
+          "log_loss": 0.5400058010180965,
+          "brier": 0.17766122299749967,
+          "roc_auc": 0.8301940080435012,
+          "accuracy": 0.7701778385772914,
+          "kappa": 0.5341441024512742,
+          "taux_predit": 0.585499316005472,
+          "taux_observe": 0.5389876880984952
+        },
+        "era5_seuil": {
+          "accuracy": 0.533515731874145,
+          "kappa": 0.12359056757013309,
+          "taux_predit": 0.08618331053351573,
+          "taux_observe": 0.5389876880984952
+        },
+        "mlp": {
+          "log_loss": 0.32990370922000417,
+          "brier": 0.10223073893871579,
+          "roc_auc": 0.9319089005708777,
+          "accuracy": 0.8454172366621067,
+          "kappa": 0.6875347538763575,
+          "taux_predit": 0.5677154582763337,
+          "taux_observe": 0.5389876880984952
+        }
+      },
+      "ic": {
+        "majoritaire": {
+          "log_loss": [
+            0.6761778400539424,
+            0.7053410455732522
+          ],
+          "brier": [
+            0.24154260154268672,
+            0.2560676478449885
+          ],
+          "roc_auc": [
+            0.5,
+            0.5
+          ],
+          "accuracy": [
+            0.47058823529411764,
+            0.6054513506647472
+          ],
+          "kappa": [
+            0.0,
+            0.0
+          ]
+        },
+        "climatologie": {
+          "log_loss": [
+            0.5002678069532266,
+            0.5817716422003346
+          ],
+          "brier": [
+            0.15912616964239945,
+            0.19696904506219312
+          ],
+          "roc_auc": [
+            0.773404861308315,
+            0.8761669613793147
+          ],
+          "accuracy": [
+            0.7197237499651024,
+            0.8198224461724166
+          ],
+          "kappa": [
+            0.4279227629139128,
+            0.634101980106113
+          ]
+        },
+        "era5_seuil": {
+          "accuracy": [
+            0.4745222387601918,
+            0.5978246715979504
+          ],
+          "kappa": [
+            0.0820583549076874,
+            0.1728589325713139
+          ]
+        },
+        "mlp": {
+          "log_loss": [
+            0.2830904535981133,
+            0.3785114271879219
+          ],
+          "brier": [
+            0.0855955391400535,
+            0.11920312063891292
+          ],
+          "roc_auc": [
+            0.9096392656725301,
+            0.9513455845250569
+          ],
+          "accuracy": [
+            0.8125769842820849,
+            0.8768809849521204
+          ],
+          "kappa": [
+            0.6213562030029433,
+            0.7477563320438645
+          ]
+        }
+      },
+      "diff_mlp_moins_modele": {
+        "majoritaire": {
+          "log_loss": [
+            -0.409697929376719,
+            -0.3152303544597228
+          ],
+          "brier": [
+            -0.1647732491999485,
+            -0.13019770724722465
+          ],
+          "roc_auc": [
+            0.40963926567253006,
+            0.45134558452505685
+          ],
+          "accuracy": [
+            0.24076607387140903,
+            0.3748463152767657
+          ],
+          "kappa": [
+            0.6213562030029433,
+            0.7477563320438645
+          ]
+        },
+        "climatologie": {
+          "log_loss": [
+            -0.2536062539708832,
+            -0.16618494479173934
+          ],
+          "brier": [
+            -0.09199049407881937,
+            -0.05978795152115245
+          ],
+          "roc_auc": [
+            0.06269628166868779,
+            0.15043194762326717
+          ],
+          "accuracy": [
+            0.03438319123433268,
+            0.12112244897959185
+          ],
+          "kappa": [
+            0.07431516547239242,
+            0.24971041628724266
+          ]
+        },
+        "era5_seuil": {
+          "accuracy": [
+            0.24078087048773,
+            0.3824094859785826
+          ],
+          "kappa": [
+            0.4941481137564143,
+            0.629850664572848
+          ]
+        }
+      }
+    }
+  }
+}
