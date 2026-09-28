@@ -1,0 +1,30 @@
+# --- Environnement Python ---
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# --- Données ---
+# Source de vérité : extraction/data/final/. On ne versionne pas les copies
+# ni les tables dérivées, recalculées à chaque entraînement.
+data/
+
+# --- Modèles entraînés ---
+# Binaires régénérables par entrainer_*.py. Les paquets modèle exportés pour
+# l'API seront versionnés ou publiés à part.
+modeles/
+
+# --- Résultats ---
+# Les rapports (json, csv) sont versionnés : ce sont les chiffres du mémoire.
+# Les essais de pipeline et les prédictions nuit par nuit ne le sont pas.
+resultats/essai_*/
+resultats/**/predictions_*.parquet
+
+# --- Éditeurs et système ---
+.vscode/
+.idea/
+.claude/settings.local.json
+Thumbs.db
+Desktop.ini
+.DS_Store

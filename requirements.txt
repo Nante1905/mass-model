@@ -1,0 +1,8 @@
+# Python 3.14 : seule une release candidate de TensorFlow publie des wheels cp314
+# à ce jour. Pour une version stable, recréer le venv avec Python 3.12 ou 3.13.
+tensorflow==2.22.0rc0
+pandas==3.0.6
+pyarrow==25.0.1
+numpy==2.5.3
+scikit-learn==1.9.1
+matplotlib==3.11.2
